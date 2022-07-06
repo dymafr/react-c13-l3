@@ -16,7 +16,7 @@ export function useFetchRecipes() {
           setError('Error');
         }
       } catch (e) {
-        setError(JSON.stringify(e));
+        setError('Error');
       } finally {
         setIsLoading(false);
       }
