@@ -1,28 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useFetchRecipes } from './hooks/useFetchRecipes';
 
 function App() {
-  const [recipes, setRecipes] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch('https://restapi.fr/api/recipes');
-        if (response.ok) {
-          const fetchedData = await response.json();
-          setRecipes(Array.isArray(fetchedData) ? fetchedData : [fetchedData]);
-        } else {
-          setError('Error');
-        }
-      } catch (e) {
-        setError(JSON.stringify(e));
-      } finally {
-        setIsLoading(false);
-      }
-    }
-    fetchData();
-  }, []);
+  const { recipes, isLoading, error } = useFetchRecipes();
 
   return (
     <div
