@@ -24,27 +24,3 @@ function App() {
 }
 
 export default App;
-
-// function useData(url) {
-//   const [result, setResult] = useState(null);
-//   const [error, setError] = useState(null);
-//   const [isLoaded, setIsLoaded] = useState(false);
-//   useEffect(() => {
-//     let ignore = false;
-//     fetch(url)
-//       .then(response => response.json())
-//       .then(json => {
-//         if (!ignore) {
-//           setIsLoaded(true);
-//           setResult(json);
-//         }
-//       }, (error) => {
-//        setIsLoaded(true);
-//        setError(error);
-//     });
-//     return () => {
-//       ignore = true;
-//     };
-//   }, [url]);
-//   return {result, error, isLoaded};
-// }
